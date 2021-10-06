@@ -72,5 +72,37 @@ function resolveForm (){
         }
     }
 </script>
+
+<div class="container">
+    <img src="Alusky.jpg"  alt="Alusky" id="ClickandVerify" height="200" width="200" onclick="newImage()">
+    <p id="changetheValue">Image values are displayed when clicked on image.</p>
+</div>
+
+<script>
+    var usingImage = 1;
+
+    function newImage() {
+        var valuesChanged = document.getElementById("changetheValue")
+        switch (usingImage) {
+            case 1:
+                document.getElementById("ClickandVerify").src = "Alusky.jpg";
+                valuesChanged.innerHTML = "click : " + usingImage;
+                break;
+            case 2:
+                document.getElementById("ClickandVerify").src = "Dalmador.jpg";
+                valuesChanged.innerHTML = "click : " + usingImage;
+                break;
+            case 3:
+                document.getElementById("ClickandVerify").src = "Nigerian Goat.jpg";
+                valuesChanged.innerHTML = "click : " + usingImage;
+                usingImage = 0;
+                break;
+        }
+        usingImage++;
+    }
+</script>
+
+
+
 </body>
 </html> 
