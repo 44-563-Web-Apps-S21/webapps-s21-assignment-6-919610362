@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+ <title>Initializing Arithmetic</title>
+<body>
+
+<h2>Manish Goud Bandharapu Computes</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+
+<div class="container">
+    <label for="Valueofbase">Enter a base</label>
+    <input id="Valueofbase" type="number" name="Valueofbase" value="10"> <br>
+
+    <label for="Valueofexponent">Enter a exponent</label>
+    <input id="Valueofexponent" type="number" name="Valueofexponent" value="2"> <br>
+
+    <br>
+
+    <input type="button" onclick="powers()" value="Compute"> 
+
+</div>
+
+<p id="Valueofcomputation">The updated answers will reflect here.</p>
+
+<script>
+
+    function powers() {
+        baseValues = document.getElementById("Valueofbase").value
+        expoValues = document.getElementById("Valueofexponent").value
+        resultValues = document.getElementById("Valueofcomputation")
+        let result = "";
+        for (let i = 1; i <= expoValues; i++) {
+            result += Math.pow(baseValues, i);
+            if (i < expoValues) {
+                result += ", ";
+            }
+            else {
+                result += " ";
+            }
+        }
+        resultValues.innerHTML = "Powers of " + baseValues + " are:  " + result;
+    }
+</script>
+
+<form>
+    <input type="radio" id="add" name="functions" value="plus" onclick="processRadio()"> <label
+        for="add">+</label><br>
+    <input type="radio" id="subtract" name="functions" value="minus" onclick="processRadio()"> <label
+        for="subtract">-</label><br>
+    <input type="radio" id="multiple" name="functions" value="times" onclick="processRadio()"> <label
+        for="multiple">*</label><br>
+    <input type="radio" id="divide" name="functions" value="divide" onclick="processRadio()"> <label
+        for="divide">/</label><br>
+</form>
+
+<p id="tagged">Updated results.</p>
+
+<script>
+    function processRadio() {
+        baseValues = document.getElementById("Valueofbase").value
+        expoValues = document.getElementById("Valueofexponent").value
+        
+        baseValues = Number(baseValues)
+        expoValues = Number(expoValues)
+
+        let functionsValue = 0;
+        
+        addstart = document.getElementById("add").checked
+        substart = document.getElementById("subtract").checked
+        mulstart = document.getElementById("multiple").checked
+        divstart = document.getElementById("divide").checked
+
+        resultValue = document.getElementById("tagged")
+
+        if(addstart){
+            functionsValue = baseValues + expoValues;
+        }
+
+        else if(substart){
+            functionsValue = baseValues - expoValues;
+        }
+
+        else if(mulstart){
+            functionsValue = baseValues * expoValues;
+        }
+
+        else if(divstart){
+            functionsValue = baseValues / expoValues;
+        }
+        resultValue.innerHTML = "function Values : " +functionsValue;
+    }
+</script>
+
+
+
+</body>
+</html> 
